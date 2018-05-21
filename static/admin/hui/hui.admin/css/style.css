@@ -1,0 +1,5 @@
+@charset "utf-8";
+/* 你自己的样式 */
+
+/*.form-horizontal .form-label{text-align: left;}*/
+.form-horizontal .text-left{text-align: left;}
