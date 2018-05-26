@@ -138,6 +138,24 @@
 			</tr>
 		</tbody>
 	</table>
+	
+	<h2>业务员提成</h2>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>总计</th>
+				<th>客户交易量</th>
+				<th>单幅提成金额</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{commission}}</td>
+				<td>{{buyingNumber}}</td>
+				<td>{{commissionOne}}</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
 <script type="text/javascript">
 	$('#time').datetimepicker({
@@ -167,6 +185,9 @@
 
 			EstimatedEarningsTime:'{$EstimatedEarningsTime}',
 			investmentCycle:'{$investmentCycle}',
+
+			commission:'',
+			commissionOne:'',
 		},
 		methods:{
 			sypg:function(){
@@ -185,6 +206,10 @@
 				this.roi = ((this.earnings / this.investment) * 100).toFixed(2) + '%'
 				this.averageDailyIncome = this.earnings/this.investmentCycle
 				this.averageMonthlyIncome = this.averageDailyIncome*31
+
+				//业务员佣金
+				this.commission = this.integral * 0.08
+				this.commissionOne = this.commission / this.buyingNumber
 			}
 		}
 	})
